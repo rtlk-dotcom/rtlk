@@ -3,8 +3,12 @@
     <p
       v-if="$store.state.menu === 'Please create a menu document'"
       class="logo"
-    >{{ $store.state.menu }}</p>
-    <nuxt-link to="/" class="logo">{{ $prismic.asText($store.state.menu.title) }}</nuxt-link>
+    >
+    </p>
+    <nuxt-link to="/" class="logo">
+      <prismic-image :field="$store.state.menu.logo" />
+      {{ $prismic.asText($store.state.menu.title) }}
+    </nuxt-link>
     <nav>
       <ul>
         <li v-for="menuLink in $store.state.menu.menu_links" :key="menuLink.id">
@@ -33,17 +37,17 @@ export default {
   height: 30px
   padding: 20px 0
   font-weight: 700
+  display: flex
   a
-    font-weight: 700
-  nav a:hover
-
-// .homepage .site-header
-
-.site-header
+    font-weight: 500
   .logo
-    display: inline-block
+    display: flex
+    align-items: center
     font-size: 22px
     font-weight: 900
+    img
+      width: 36px
+      margin-right: .5em
   nav
     float: right
     ul

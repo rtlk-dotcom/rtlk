@@ -2,32 +2,34 @@
     <section class="homepage-banner">
     <!-- <section class="homepage-banner" :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + banner.image.url + ')' }"> -->
       <!-- Template for page title. -->
-      <!-- <video width="320" height="240" autoplay loop>
+      <video width="320" height="240" autoplay loop>
         <source src="~/assets/img/waves.webm" type="video/webm">
         <source src="movie.ogg" type="video/ogg">
       Your browser does not support the video tag.
-      </video> -->
+      </video>
       <div class="banner-content container">
         <!-- Template for page tagline. -->
         <prismic-rich-text :field="banner.tagline" class="tagline"/>
-        <prismic-link class="button" :field="banner.button_link">
-          {{ $prismic.asText(banner.button_label) }}
-        </prismic-link>
+        <Btn v-scroll-to="{el: '#ritalike', offset: -100}" :text="$prismic.asText(banner.button_label) " />
       </div>
     </section>
 </template>
 
 <script>
+import Btn from './Btn.vue'
 export default {
   props: ['banner'],
   name: 'homepage-banner',
+  components: {
+    Btn
+  }
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .homepage-banner
   margin: -70px 0 80px
-  padding: 10em 0 8em
+  padding: 10em 0 10em
   background-position: center center
   background-size: cover
   line-height: 1.75
@@ -53,12 +55,27 @@ export default {
     background: $bg
 
 .banner-content
-  text-align: center
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: flex-start
+  button
+    margin-top: 2em
 
 .tagline
   font-size: 1.75em
   line-height: 135%
-
+  text-align: left
+  width: 720px
+  p
+    margin-bottom: 0
+    // text-transform: uppercase
+    font-size: 2.2em
+    line-height: 100%
+    font-family: 'Söhne Test', sans-serif
+    font-weight: 600
+    strong
+      opacity: .5
 .banner-title, .banner-description
   width: 90%
   max-width: 490px

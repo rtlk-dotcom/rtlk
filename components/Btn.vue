@@ -1,20 +1,22 @@
 <template>
+<no-ssr>
   <button
-    :class="{'outlined': outlined}"
+    :class="{'outlined': outlined, 'snipcart-add-item': index}"
     :data-item-id="index"
+    :data-item-name="$prismic.asText(produit.name)"
+    :data-item-description="produit.qty + 'x' + produit.dosage + 'mg. Not for human consumption.'"
     :data-item-price="produit.price"
     data-item-url="/"
-    :data-item-description="'Not for human consumption.'"
-    :data-item-name="$prismic.asText(produit.name)"
   >
     <img v-if="icon" :src="getImgUrl(icon)" :alt="icon">
     <span>{{ text }}</span>
   </button>
+</no-ssr>
 </template>
 <script>
 export default {
   props: ['icon', 'text', 'outlined', 'pdt', 'index'],
-  name: 'button',
+  name: 'btn',
   data(){
     return{
       produit: ''
@@ -50,6 +52,7 @@ export default {
     position: relative
     z-index: 2
     box-sizing: border-box
+    outline: 0
     img
       height: 1em
       margin-right: .5em
@@ -82,7 +85,7 @@ export default {
       cursor: pointer
       img
         filter: invert(20%) sepia(9%) saturate(3037%) hue-rotate(180deg) brightness(99%) contrast(104%)
-    &.outlined, &:hover
+    &.outlined, &:hover, &.snipcart__button--icon, &.snipcart-discount-box__cancel
       span
         background: $bg
         -webkit-background-clip: text
@@ -94,12 +97,15 @@ export default {
         left: 2px
         width: calc( 100% - 4px )
         height: calc( 100% - 4px )
-    &.outlined
+    &.outlined, &.snipcart__button--icon, &.snipcart-discount-box__cancel
       &:hover
+        color: white
         &:before
           opacity: 0
         span
           background: white
           -webkit-background-clip: text
           -webkit-text-fill-color: transparent
+        svg
+          filter: grayscale(1)
 </style>

@@ -12,8 +12,8 @@
     <span class="qty">x{{ slice.primary.qty}}</span>
     <span class="price">{{ slice.primary.price}}€</span>
     <div class="buttons">
-      <Button :text="'Subscribe'" :outlined="true" />
-      <Button :text="'Add to Cart'" :icon="'cart'" :pdt="slice.primary" :index="index"
+      <Btn :text="'Subscribe'" :outlined="true" />
+      <Btn :text="'Add to Cart'" :icon="'cart'" :pdt="slice.primary" :index="index"
        />
     </div>
 
@@ -21,13 +21,13 @@
 </template>
 
 <script>
-import Button from '@/components/Button.vue'
+import Btn from '@/components/Btn.vue'
 
 export default {
   props: ['slice', 'index'],
   name: 'single',
   components:{
-    Button
+    Btn
   }
 }
 </script>

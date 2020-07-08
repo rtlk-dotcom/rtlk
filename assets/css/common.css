@@ -85,7 +85,7 @@ img {
 
 /* General */
 .container, header, footer {
-  max-width: 980px;
+  max-width: 1040px;
   margin: auto;
 }
 .content-section {

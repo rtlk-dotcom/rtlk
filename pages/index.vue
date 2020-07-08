@@ -12,7 +12,9 @@
         </div>
         <p>Learn more about mircrodosing on <a href="#">the Third Wave</a></p>
       </div>
-      <Category :slices="slices" :name="cat"/>
+      <section class="packs">
+        <Category :slices="slices" :name="cat"/>
+      </section>
     </section>
   </section>
 </template>

@@ -1,3 +1,90 @@
 $bg: linear-gradient(104.52deg, #80D8FF  -28.42%, #EA80FC 178.03%)
 $bgReverse: linear-gradient(104.52deg,#EA80FC -28.42%, #80D8FF 178.03%)
 $shadow: 0px 30px 60px rgba(50, 0, 0, 0.25)
+
+
+.snipcart
+  font-family: inherit
+
+.snipcart *
+  // background: inherit
+.snipcart-modal
+    background: #F4F4FA
+.snipcart-modal__container
+    background: #F4F4FA
+
+.snipcart-cart-header__close-button.snipcart-modal__close
+  flex: initial
+  padding: 1em 2em
+  color: white
+  font-weight: 600
+  span
+    color: white
+.snipcart-cart-header
+  max-width: auto
+  display: flex
+  justify-content: space-between
+  position: relative
+  padding: 3em 0 2em
+.snipcart-cart-header__options
+  flex: initial
+  button
+    min-height: 3em
+    padding: 1em
+    color: white
+    svg
+      filter: brightness(1000%)
+    &:hover
+      color: #B8AAFE
+      svg.snipcart__icon
+        filter: brightness(0%)
+.snipcart-cart__content
+  background: #F4F4FA
+.snipcart-layout__content
+  max-width: 1040px
+  background: #F4F4FA
+.snipcart-item-line
+  border-radius: 1em
+.snipcart-item-line__info
+  position: absolute
+.snipcart__button--icon
+  min-height: 3em
+  min-width: 3em
+.snipcart__font--secondary.snipcart__font--regular
+  padding: 1em
+.snipcart-item-quantity__quantity
+  width: auto
+  border-radius: .5em
+.snipcart-cart__checkout-button, .snipcart-cart-header__close-button
+  font-weight: 600
+  svg
+    filter: brightness(1000%)
+  &:hover
+    color: #B8AAFE
+    svg.snipcart__icon
+      filter: none
+.snipcart__font--secondary
+  font-family: inherit
+.snipcart-featured-payment-methods__link
+  background: $bg
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+.snipcart-discount-box__submit, .snipcart-discount-box__cancel
+  padding: 1em 2em
+  font-weight: 600
+.snipcart-discount-box__submit
+  color: white
+  &:hover
+    color: #B8AAFE
+.snipcart-discount-box__cancel
+  color: #B8AAFE
+  color: #B8AAFE
+  &:hover
+    color: white
+.snipcart-discount-box__form
+  padding-right: 2px
+.snipcart-discount-box__button
+  border: 0
+  color: white
+  font-weight: 600
+  font-size: 16px
