@@ -1,0 +1,66 @@
+<template>
+  <article>
+    <h1>{{ $prismic.asText(slice.primary.name) }}</h1>
+    <h2>{{ $prismic.asText(slice.primary.full_name) }}</h2>
+    <!-- {{ slice.primary.link_wikipedia}}
+    {{ slice.primary.link_thirdwave}} -->
+    <div class="links">
+      <span class="link"></span>
+      <span class="link"></span>
+    </div>
+    <span class="dosage">{{ slice.primary.dosage}}mg</span>
+    <span class="qty">x{{ slice.primary.qty}}</span>
+    <span class="price">{{ slice.primary.price}}€</span>
+    <div class="buttons">
+      <Button :text="'Subscribe'" :outlined="true" />
+      <Button :text="'Add to Cart'" :icon="'cart'" :pdt="slice.primary" :index="index"
+       />
+    </div>
+
+  </article>
+</template>
+
+<script>
+import Button from '@/components/Button.vue'
+
+export default {
+  props: ['slice', 'index'],
+  name: 'single',
+  components:{
+    Button
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+  article
+    display: flex
+    align-items: center
+    justify-content: space-between
+    h1, h2
+      font-family: inherit
+      font-weight: 700
+      font-size: 15px
+      margin: 0 1em 0 .5em
+      width: 6%
+      white-space: nowrap
+    h2
+      font-weight: 400
+      color: #C5C5C5
+    .links
+      display: flex
+      span.link
+        border-radius: 50%
+        height: 35px
+        width: 35px
+        background: #F4F4FA
+        color: #C5C5C5
+        &:not(:last-child)
+          margin-right: 1em
+    .dosage
+      font-weight: 600
+    .qty
+      color: #3ECF8E
+
+
+</style>
