@@ -49,6 +49,4 @@ export default {
   display: flex
   flex-direction: row
   justify-content: space-between
-  .category-card
-    width: calc(33% - 3em)
 </style>
