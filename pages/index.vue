@@ -10,7 +10,7 @@
     <section v-for="(cat, index) in categories" :key="cat" :id="cat" :card="slices[0].items[index]" class="slice categories">
       <div class="intro">
         <div class="title">
-          <h1>{{ slices[0].items[index].category }} {{ $prismic.asText(slices[0].items[index].suffix)}}</h1>
+          <h1>{{ cat }} {{ $prismic.asText(slices[0].items[index].suffix)}}</h1>
           <h2>{{ $prismic.asText(slices[0].items[index].desc)}}</h2>
         </div>
         <p v-if="slices[0].items[index].wiki_link.url"> Learn more about mircrodosing on <a :href="slices[0].items[index].wiki_link.url">the Third Wave</a></p>
