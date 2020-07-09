@@ -37,6 +37,11 @@ export default {
   position: relative
   &:hover
     background: $bg
+    color: white
+    transition: color .25s
+    h1
+      color: white
+      transition: color .25s
   &:after
     position: absolute
     content: ''
