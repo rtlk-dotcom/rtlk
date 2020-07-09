@@ -13,8 +13,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato:400,500,600,700,900,400italic,700italic' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lora:400,500,600,400italic,700,700italic' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
       { rel: 'preconnect', href: "https://app.snipcart.com" },
       { rel: 'preconnect', href: "https://cdn.snipcart.com" },

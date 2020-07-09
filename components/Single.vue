@@ -1,7 +1,9 @@
 <template>
   <article>
-    <h1>{{ $prismic.asText(slice.primary.name) }}</h1>
-    <h2>{{ $prismic.asText(slice.primary.full_name) }}</h2>
+    <div class="product-title">
+      <h1>{{ $prismic.asText(slice.primary.name) }}</h1>
+      <h2>{{ $prismic.asText(slice.primary.full_name) }}</h2>
+    </div>
     <!-- {{ slice.primary.link_wikipedia}}
     {{ slice.primary.link_thirdwave}} -->
     <div class="links">
@@ -37,16 +39,20 @@ export default {
     display: flex
     align-items: center
     justify-content: space-between
+    .product-title
+      display: flex
+      align-items: center
     h1, h2
       font-family: inherit
       font-weight: 700
       font-size: 15px
       margin: 0 1em 0 .5em
-      width: 6%
       white-space: nowrap
+      width: 5em
     h2
-      font-weight: 400
+      font-weight: 500
       color: #C5C5C5
+      width: 7em
     .links
       display: flex
       span.link

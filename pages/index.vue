@@ -4,13 +4,16 @@
     <homepage-banner :banner="banner" :categories="categories"/>
     <!-- Slices block component -->
     <!-- <slices-block :slices="slices"/> -->
-    <section v-for="cat in categories" :key="cat" class="slice">
+    <section class="slice cards-category-slice">
+      <ProductsCategoryCards v-for="(cat, index) in categories" :key="cat" :card="slices[0].items[index]" :index="index" :slices="slices" :name="cat"/>
+    </section>
+    <section v-for="(cat, index) in categories" :key="cat" :id="cat" :card="slices[0].items[index]" class="slice categories">
       <div class="intro">
         <div class="title">
-          <h1>Ritalike Selection</h1>
-          <h2>Methylphenidate analogue pellets</h2>
+          <h1>{{ slices[0].items[index].category }} {{ $prismic.asText(slices[0].items[index].suffix)}}</h1>
+          <h2>{{ $prismic.asText(slices[0].items[index].desc)}}</h2>
         </div>
-        <p>Learn more about mircrodosing on <a href="#">the Third Wave</a></p>
+        <p v-if="slices[0].items[index].wiki_link.url"> Learn more about mircrodosing on <a :href="slices[0].items[index].wiki_link.url">the Third Wave</a></p>
       </div>
       <section class="packs">
         <Category :slices="slices" :name="cat"/>
@@ -24,6 +27,7 @@
 import HomepageBanner from '~/components/HomepageBanner.vue'
 import SlicesBlock from '~/components/SlicesBlock.vue'
 import Category from '~/components/Category.vue'
+import ProductsCategoryCards from "~/components/ProductsCategoryCards.vue";
 
 export default {
   name: 'Home',
@@ -31,7 +35,8 @@ export default {
   components: {
     HomepageBanner,
     SlicesBlock,
-    Category
+    Category,
+    ProductsCategoryCards
   },
   data(){
     return{
@@ -61,23 +66,26 @@ export default {
 }
 </script>
 <style lang="sass">
+  .site-header
+    z-index: 9999;
+    position: relative;
   section
     h1
       text-transform: uppercase
-      font-size: 21px
-      font-weight: 600
+      font-size: 19px
+      font-weight: 700
       letter-spacing: .175em
+      margin-right: .25em
     h2
       color: inherit
-      font-size: 18px
-      font-weight: 400
+      font-size: 19px
+      font-weight: 300
     a
       background: $bg
       -webkit-background-clip: text
       -webkit-text-fill-color: transparent
       font-weight: 700
       font-size: inherit
-      text-decoration: underline
       position: relative
       &:after
         position: absolute
@@ -94,8 +102,8 @@ export default {
   section.slice
     width: 1040px
     margin: auto
-    padding: 3em 0
-    &:hover
+    padding: 2em 0
+    &.categories:hover
       .category
         background: $bg
         box-shadow: $shadow

@@ -2,7 +2,7 @@
     <section class="homepage-banner">
     <!-- <section class="homepage-banner" :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + banner.image.url + ')' }"> -->
       <!-- Template for page title. -->
-      <video width="320" height="240" autoplay loop>
+      <video width="320" height="240" id="bg-video" autoplay loop>
         <source src="~/assets/img/waves.webm" type="video/webm">
         <source src="movie.ogg" type="video/ogg">
       Your browser does not support the video tag.
@@ -10,7 +10,7 @@
       <div class="banner-content container">
         <!-- Template for page tagline. -->
         <prismic-rich-text :field="banner.tagline" class="tagline"/>
-        <Btn v-scroll-to="{el: '#ritalike', offset: -100}" :text="$prismic.asText(banner.button_label) " />
+        <Btn v-scroll-to="{el: '#ritalike'}" :text="$prismic.asText(banner.button_label) " />
       </div>
     </section>
 </template>
@@ -22,6 +22,9 @@ export default {
   name: 'homepage-banner',
   components: {
     Btn
+  },
+  mounted(){
+    document.getElementById("bg-video").play()
   }
 }
 </script>
