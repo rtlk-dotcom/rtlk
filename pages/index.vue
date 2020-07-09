@@ -45,7 +45,7 @@ export default {
   },
   head () {
     return {
-      title: 'Prismic Nuxt.js Multi Page Website',
+      title: 'Ritalike',
     }
   },
   async asyncData({ $prismic, error }) {

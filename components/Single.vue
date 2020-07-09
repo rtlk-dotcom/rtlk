@@ -8,8 +8,12 @@
       <!-- {{ slice.primary.link_wikipedia}}
       {{ slice.primary.link_thirdwave}} -->
       <div class="links">
-        <span class="link"></span>
-        <span class="link"></span>
+        <prismic-link v-if="slice.primary.link_wikipedia.url" :field="slice.primary.link_wikipedia" class="link">
+          <img src="~/assets/img/wikipedia.svg" />
+        </prismic-link>
+        <prismic-link v-if="slice.primary.link_thirdwave.url" :field="slice.primary.link_thirdwave" class="link">
+          <img src="~/assets/img/wave.svg" />
+        </prismic-link>
       </div>
       <span class="dosage">{{ slice.primary.dosage}}mg</span>
       <span class="qty">x{{ slice.primary.qty}}</span>
@@ -53,7 +57,7 @@ export default {
     cursor: pointer
     &:hover
       transition: background .25s
-      background: rgba(#FFFFFF, .9)
+      background: rgba(#FFFFFF, .95)
   .main-line
     display: flex
     align-items: center
@@ -74,12 +78,21 @@ export default {
       width: 7em
     .links
       display: flex
-      span.link
+      width: 5.5em
+      justify-content: center
+      a.link
         border-radius: 50%
         height: 35px
         width: 35px
         background: #F4F4FA
         color: #C5C5C5
+        display: flex
+        align-items: center
+        justify-content: center
+        img
+          height: 1.1em
+        &:after
+          display: none
         &:not(:last-child)
           margin-right: 1em
     .dosage
@@ -87,7 +100,7 @@ export default {
     .qty
       color: #3ECF8E
   .more-content
-    background: #F4F4FA
+    border: 2px solid #F4F4FA
     border-radius: .5em
     margin-top: 1em
     padding: 2em 1em

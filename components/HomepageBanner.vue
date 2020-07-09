@@ -5,7 +5,6 @@
       <client-only>
         <video width="320" height="240" ref="bg-video" autoplay loop>
           <source src="~/assets/img/waves.webm" type="video/webm">
-          <source src="movie.ogg" type="video/ogg">
         Your browser does not support the video tag.
         </video>
       </client-only>
