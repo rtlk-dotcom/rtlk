@@ -4,7 +4,7 @@
     <homepage-banner :banner="banner" :categories="categories"/>
     <!-- Slices block component -->
     <!-- <slices-block :slices="slices"/> -->
-    <section class="slice cards-category-slice">
+    <section class="slice cards-category-slice slice-gradient">
       <ProductsCategoryCards v-for="(cat, index) in categories" :key="cat" :card="slices[0].items[index]" :index="index" :slices="slices" :name="cat"/>
     </section>
     <section v-for="(cat, index) in categories" :key="cat" :id="cat" :card="slices[0].items[index]" class="slice categories">
@@ -103,6 +103,20 @@ export default {
     width: 1040px
     margin: auto
     padding: 2em 0
+    &.slice-gradient
+      position: relative
+      margin: 0
+      padding: 80px calc(50% - 520px) 
+      &:before
+        background: linear-gradient(183.92deg, rgba(255, 255, 255, 0) -21.08%, #FFFFFF 90.05%), linear-gradient(105.58deg, #80D8FF -28.42%, #EA80FC 178.03%), #C4C4C4;
+        position: absolute
+        content: ''
+        top: 0
+        left: 0 
+        width: 100%
+        height: 100%
+        opacity: .2
+        z-index: -3
     &.categories:hover
       .category
         background: $bg
@@ -122,4 +136,5 @@ export default {
     button
       &:not(:last-child)
         margin-right: .5em
+
 </style>

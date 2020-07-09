@@ -2,7 +2,7 @@
   <div class="homepage">
     <header-prismic/>
     <nuxt />
-    <footer-prismic/>
+    <!-- <footer-prismic/> -->
     <link rel="preconnect" href="https://app.snipcart.com">
     <link rel="preconnect" href="https://cdn.snipcart.com">
     <div id="snipcart" data-api-key="MDJjZDhiY2MtNTdlOS00OTdkLTgzZGEtNDA4NmQzZmRkNjM1NjM3Mjc4OTk3MzMzMDg2MTU0" hidden></div>

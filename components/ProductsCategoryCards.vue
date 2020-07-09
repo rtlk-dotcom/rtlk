@@ -31,7 +31,7 @@ export default {
 <style lang="sass">
 .category.category-card
   width: calc(33% - 1em)
-  padding: 6em 1.5em
+  padding: 5em 1.5em
   box-sizing: border-box
   background: transparent
   position: relative
@@ -47,12 +47,14 @@ export default {
     border-radius: 1em
     border: 2px solid #F4F4FA
     z-index: -1
+    background: white
   h1
     font-size: 2em
     line-height: 110%
     font-weight: 700
   .outlined
     margin-top: auto
+    align-self: center
   .products
     display: flex
     flex-direction: column

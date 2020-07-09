@@ -2,11 +2,13 @@
     <section class="homepage-banner">
     <!-- <section class="homepage-banner" :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + banner.image.url + ')' }"> -->
       <!-- Template for page title. -->
-      <video width="320" height="240" id="bg-video" autoplay loop>
-        <source src="~/assets/img/waves.webm" type="video/webm">
-        <source src="movie.ogg" type="video/ogg">
-      Your browser does not support the video tag.
-      </video>
+      <client-only>
+        <video width="320" height="240" ref="bg-video" autoplay loop>
+          <source src="~/assets/img/waves.webm" type="video/webm">
+          <source src="movie.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+        </video>
+      </client-only>
       <div class="banner-content container">
         <!-- Template for page tagline. -->
         <prismic-rich-text :field="banner.tagline" class="tagline"/>
@@ -23,15 +25,17 @@ export default {
   components: {
     Btn
   },
-  mounted(){
-    document.getElementById("bg-video").play()
+  ready(){
+    if(process.static){
+      this.$refs.inputName("bg-video").play()
+    }
   }
 }
 </script>
 
 <style lang="sass">
 .homepage-banner
-  margin: -70px 0 80px
+  margin: -70px 0 0px
   padding: 10em 0 10em
   background-position: center center
   background-size: cover
