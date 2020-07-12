@@ -3,7 +3,7 @@
     <!-- <section class="homepage-banner" :style="{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(' + banner.image.url + ')' }"> -->
       <!-- Template for page title. -->
       <client-only>
-        <video width="320" height="240" ref="bg-video" autoplay loop>
+        <video width="320" height="240" ref="bg-video" id="vid" autoplay loop>
           <source src="~/assets/img/waves.webm" type="video/webm">
         Your browser does not support the video tag.
         </video>
@@ -11,6 +11,12 @@
       <div class="banner-content container">
         <!-- Template for page tagline. -->
         <prismic-rich-text :field="banner.tagline" class="tagline"/>
+        <p>
+          We offer different analogues for *********** (branded as *********®), 
+          *** and ******* under the form of pellets or tabs that are dosed to have 
+          the same potent as the original ones.<br /> These compounds are for research only 
+          and not for human consumption.
+        </p>
         <Btn v-scroll-to="{el: '#ritalike'}" :text="$prismic.asText(banner.button_label) " />
       </div>
     </section>
@@ -65,6 +71,11 @@ export default {
   flex-direction: column
   justify-content: flex-start
   align-items: flex-start
+  >p
+    text-align: left
+    width: 720px
+    font-weight: 500
+    margin-top: 1em
   button
     margin-top: 2em
 

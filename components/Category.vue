@@ -21,7 +21,6 @@ export default {
 
 <style lang="sass">
 .category
-  background: #F4F4FA
   border-radius: 16px
   display: flex
   flex-direction: column
@@ -29,6 +28,20 @@ export default {
   padding: 1em
   box-shadow: 0px 0px 0px rgba(black, 0)
   transition: all .35s
+  position: relative
+  z-index: 1
+  &:before
+    @include pseudo
+    background: #F4F4FA
+    border-radius: 1em
+    z-index: -2
+  &:after
+    @include pseudo
+    background: $bg
+    opacity: 0
+    transition: opacity .3s
+    border-radius: 1em
+    z-index: -2
   &:hover
     background: $bg
     box-shadow: $shadow
@@ -37,8 +50,8 @@ export default {
       color: white
       -webkit-background-clip: text
       -webkit-text-fill-color: initial
-      &:after
-        background: white
+    &:after
+      opacity: 1
   .single
     background: white
     border-radius: 8px

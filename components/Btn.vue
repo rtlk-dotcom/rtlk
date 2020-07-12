@@ -1,21 +1,23 @@
 <template>
 <no-ssr>
   <button
-    :class="{'outlined': outlined, 'snipcart-add-item': index}"
+    :class="{'outlined': outlined, 'snipcart-add-item': index, 'snipcart-checkout': checkout }"
     :data-item-id="index"
     :data-item-name="$prismic.asText(produit.name)"
-    :data-item-description="produit.qty + 'x' + produit.dosage + 'mg. Not for human consumption.'"
+    :data-item-description="produit.qty ? produit.qty + 'x' + produit.dosage + 'mg. Not for human consumption.' : ''"
     :data-item-price="produit.price"
     data-item-url="/"
   >
     <img v-if="icon" :src="getImgUrl(icon)" :alt="icon">
-    <span>{{ text }}</span>
+    <span>{{ text }}</span> 
+    <span v-if="checkout"> (</span><span ref="count" v-if="checkout" class="snipcart-items-count"></span><span v-if="checkout" >)</span>
   </button>
 </no-ssr>
 </template>
 <script>
+
 export default {
-  props: ['icon', 'text', 'outlined', 'pdt', 'index'],
+  props: ['icon', 'text', 'outlined', 'pdt', 'index', 'checkout'],
   name: 'btn',
   data(){
     return{
@@ -31,11 +33,16 @@ export default {
       return images('./' + icon + ".svg")
     },
     getPdt(pdt){
-      if(pdt){
+      if(pdt)
         this.produit = pdt
-      }else
+      else
         this.produit =  []
-      }
+      },
+  },
+  monted(){
+    Snipcart.events.on('item.added', (cartItem) => {
+        console.log(Snipcart.cart);
+    });
   }
 }
 </script>
@@ -56,26 +63,28 @@ export default {
     img
       height: 1em
       margin-right: .5em
-    span
       color: white
+    &.outlined.circle
+      background: transparent
+      padding: 0
+      height: 2.5em
+      max-width: 2.5em
+      min-width: 2.5em
+      display: flex
+      justify-content: center
+      align-items: center
+      img
+        margin: 0
+      &:after, &:before
+        border-radius: 50%
     &:before
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      content: ''
+      @include pseudo  
       background: $bg
       z-index: -1
       border-radius: 8px
       transition: opacity .3s ease
     &:after
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      content: ''
+      @include pseudo
       background: $bgReverse
       z-index: -2
       border-radius: 8px
@@ -84,7 +93,7 @@ export default {
     &:hover
       cursor: pointer
       img
-        filter: invert(20%) sepia(9%) saturate(3037%) hue-rotate(180deg) brightness(99%) contrast(104%)
+        filter: invert(20%) sepia(9%) saturate(3037%) hue-rotate(180deg)   contrast(104%)
     &.outlined, &:hover, &.snipcart__button--icon, &.snipcart-discount-box__cancel
       span
         background: $bg
@@ -93,6 +102,7 @@ export default {
       &:before
         border-radius: 6px
         background: white
+        transition: background .3s
         top: 2px
         left: 2px
         width: calc( 100% - 4px )
@@ -102,10 +112,11 @@ export default {
         color: white
         &:before
           opacity: 0
+          transition: opacity .3s
         span
           background: white
           -webkit-background-clip: text
           -webkit-text-fill-color: transparent
-        svg
-          filter: grayscale(1)
+        svg, img
+          filter: brightness(2000%)
 </style>

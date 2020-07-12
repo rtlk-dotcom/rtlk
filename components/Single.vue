@@ -9,10 +9,10 @@
       {{ slice.primary.link_thirdwave}} -->
       <div class="links">
         <prismic-link v-if="slice.primary.link_wikipedia.url" :field="slice.primary.link_wikipedia" class="link">
-          <img src="~/assets/img/wikipedia.svg" />
+          <Btn class="outlined circle" :icon="'wikipedia'" />
         </prismic-link>
         <prismic-link v-if="slice.primary.link_thirdwave.url" :field="slice.primary.link_thirdwave" class="link">
-          <img src="~/assets/img/wave.svg" />
+          <Btn class="outlined circle" :icon="'wave'" />
         </prismic-link>
       </div>
       <span class="dosage">{{ slice.primary.dosage}}mg</span>
@@ -84,7 +84,6 @@ export default {
         border-radius: 50%
         height: 35px
         width: 35px
-        background: #F4F4FA
         color: #C5C5C5
         display: flex
         align-items: center

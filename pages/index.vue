@@ -109,14 +109,9 @@ export default {
       margin-top: -80px;
       padding: 0 calc(50% - 520px) 50px;
       &:before
-        background: linear-gradient(183.92deg, rgba(255, 255, 255, 0) -21.08%, #FFFFFF 90.05%), linear-gradient(105.58deg, #80D8FF -28.42%, #EA80FC 178.03%), #C4C4C4;
-        position: absolute
+        @include pseudo
         display: none
-        content: ''
-        top: 0
-        left: 0 
-        width: 100%
-        height: 100%
+        background: linear-gradient(183.92deg, rgba(255, 255, 255, 0) -21.08%, #FFFFFF 90.05%), linear-gradient(105.58deg, #80D8FF -28.42%, #EA80FC 178.03%), #C4C4C4;
         opacity: .2
         z-index: -3
     &.categories:hover

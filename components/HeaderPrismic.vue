@@ -15,29 +15,33 @@
           <a
             href="#"
             v-scroll-to="{
-              el: '#' + $prismic.asText(menuLink.label),
-              offset: -100
+              el: '#' + $prismic.asText(menuLink.label)
             }">
             {{ $prismic.asText(menuLink.label) }}
           </a>
         </li>
       </ul>
     </nav>
+    <Btn :text="'Checkout'" checkout="true" :outlined="true"/>
   </header>
 </template>
 
 <script>
+import Btn from '@/components/Btn.vue'
 export default {
-  name: "header-prismic"
+  name: "header-prismic",
+  components: {
+    Btn
+  }
 };
 </script>
 
 <style lang="sass">
 .site-header
-  height: 30px
   padding: 20px 0
   font-weight: 700
   display: flex
+  align-items: center
   a
     font-weight: 500
   .logo
@@ -56,7 +60,8 @@ export default {
     li
       display: inline-block
       margin-left: 40px
-
+  button
+    margin-left: auto
 @media (max-width: 1060px)
   .site-header
     padding-left: 20px

@@ -36,22 +36,17 @@ export default {
   background: transparent
   position: relative
   &:hover
-    background: $bg
     color: white
     transition: color .25s
     h1
       color: white
       transition: color .25s
-  &:after
-    position: absolute
-    content: ''
-    top: 0
-    left: 0 
+    &:after
+      background: $bg
+  &:before
     width: calc(100% - 4px)
     height: calc(100% - 4px)
-    border-radius: 1em
     border: 2px solid #F4F4FA
-    z-index: -1
     background: white
   h1
     font-size: 2em
@@ -64,4 +59,7 @@ export default {
     display: flex
     flex-direction: column
     margin-bottom: 2em
+  &:hover .products
+    span a:after
+      background: white
 </style>

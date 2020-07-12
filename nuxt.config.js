@@ -13,9 +13,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato:400,500,600,700,900,400italic,700italic' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lora:400,500,600,400italic,700,700italic' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
       { rel: 'preconnect', href: "https://app.snipcart.com" },
       { rel: 'preconnect', href: "https://cdn.snipcart.com" },
       { rel: 'stylesheet', href: 'https://cdn.snipcart.com/themes/v3.0.16/default/snipcart.css' },
@@ -53,11 +50,18 @@ export default {
     '@/modules/crawler',
     // https://prismic-nuxt.js.org/
     '@nuxtjs/prismic',
+    'nuxt-webfontloader',
     ['vue-scrollto/nuxt', { duration: 300 }],
   ],
 
   styleResources: {
     sass: ['./assets/css/*.sass']
+  },
+
+  webfontloader: {
+    google: {
+      families: ['Lato:400,500,600,700,900,400italic'] //Loads Lato font with weights 400 and 700
+    }
   },
 
   prismic: {
