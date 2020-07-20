@@ -1,13 +1,14 @@
 <template>
   <div class="category category-card">
-    <h1>{{ name }} {{ $prismic.asText(card.suffix) }}</h1>
-    <p>{{ $prismic.asText(card.desc) }}</p>
+    <h1>***</h1>
+    <p>***</p>
     <div class="products">
       <span v-for="(slice, index) in slices"
         :key="slice.id"
         v-if="slice.primary.category === name"
         :index="index">
-        <a href="#" v-scroll-to="'#' + name">{{ $prismic.asText(slice.primary.name) }}</a>
+        <!-- <a href="#" v-scroll-to="'#' + name">{{ $prismic.asText(slice.primary.name) }}</a> -->
+        <a href="#" v-scroll-to="'#' + name">***</a>
       </span>
     </div>
     <Btn v-scroll-to="'#' + name" class="outlined" :text="'View selection'"/>

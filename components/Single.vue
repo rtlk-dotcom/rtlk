@@ -2,8 +2,8 @@
   <article>
     <div class="main-line" @click="shown = !shown">
       <div class="product-title">
-        <h1>{{ $prismic.asText(slice.primary.name) }}</h1>
-        <h2>{{ $prismic.asText(slice.primary.full_name) }}</h2>
+        <h1>***</h1>
+        <h2>***</h2>
       </div>
       <!-- {{ slice.primary.link_wikipedia}}
       {{ slice.primary.link_thirdwave}} -->
@@ -15,7 +15,7 @@
           <Btn class="outlined circle" :icon="'wave'" />
         </prismic-link>
       </div>
-      <span class="dosage">{{ slice.primary.dosage}}mg</span>
+      <span class="dosage">{{ slice.primary.dosage}}**</span>
       <span class="qty">x{{ slice.primary.qty}}</span>
       <span class="price">{{ slice.primary.price}}€</span>
       <div class="buttons">
@@ -26,7 +26,7 @@
     <div class="more-content" v-show="shown">
       <div class="desc">
         {{ $prismic.asText(slice.primary.desc) }}
-        <p><strong>{{ $prismic.asText(slice.primary.name) }} is not for human consumption</strong></p>
+        <!-- <p><strong>{{ $prismic.asText(slice.primary.name) }} is not for human consumption</strong></p> -->
       </div>
       <prismic-image :field="slice.primary.molecule"/>
     </div>

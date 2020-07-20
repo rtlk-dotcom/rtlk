@@ -12,10 +12,8 @@
         <!-- Template for page tagline. -->
         <prismic-rich-text :field="banner.tagline" class="tagline"/>
         <p>
-          We offer different analogues for *********** (branded as *********®), 
-          *** and ******* under the form of pellets or tabs that are dosed to have 
-          the same potent as the original ones.<br /> These compounds are for research only 
-          and not for human consumption.
+          We offer different *** for *********** (branded as *********®),
+          *** and ******* <br />
         </p>
         <Btn v-scroll-to="{el: '#ritalike'}" :text="$prismic.asText(banner.button_label) " />
       </div>
