@@ -1,11 +1,15 @@
 <template>
 <no-ssr>
   <button
-    :class="{'outlined': outlined, 'snipcart-checkout': checkout }"
+    :class="{'outlined': outlined, 'snipcart-add-item': index, 'snipcart-checkout': checkout }"
+    :data-item-id="'product' + index"
+    :data-item-name="$prismic.asText(produit.name)"
+    :data-item-description="produit.qty ? produit.qty + 'x' + produit.dosage + 'mg. Not for human consumption.' : ''"
+    :data-item-price="produit.price"
+    data-item-url="/"
   >
     <img v-if="icon" :src="getImgUrl(icon)" :alt="icon">
     <span>{{ text }}</span>
-    <span v-if="checkout"> (</span><span ref="count" v-if="checkout" class="snipcart-items-count"></span><span v-if="checkout" >)</span>
   </button>
 </no-ssr>
 </template>

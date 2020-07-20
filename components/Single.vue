@@ -20,7 +20,7 @@
       <span class="price">{{ slice.primary.price}}€</span>
       <div class="buttons">
         <!-- <Btn :text="'Subscribe'" :outlined="true" /> -->
-        <Btn :text="'Add to Cart'" :icon="'cart'" :pdt="slice.primary" :index="index" />
+        <BtnShop :text="'Add to Cart'" :icon="'cart'" :pdt="slice.primary" :index="index" />
       </div>
     </div>
     <div class="more-content" v-show="shown">
@@ -34,13 +34,13 @@
 </template>
 
 <script>
-import Btn from '@/components/Btn.vue'
+import BtnShop from '@/components/BtnShop.vue'
 
 export default {
   props: ['slice', 'index'],
   name: 'single',
   components:{
-    Btn
+    BtnShop
   },
   data(){
     return {
