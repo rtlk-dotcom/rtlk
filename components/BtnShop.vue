@@ -1,15 +1,17 @@
 <template>
-  <button
-    :class="{'outlined': outlined, 'snipcart-add-item': index, 'snipcart-checkout': checkout }"
-    :data-item-id="'product' + index"
-    :data-item-name="produit.name[0].text"
-    :data-item-description="produit.qty ? produit.qty + 'x' + produit.dosage + 'mg. Not for human consumption.' : ''"
-    :data-item-price="produit.price"
-    data-item-url="/"
-  >
-    <img v-if="icon" :src="getImgUrl(icon)" :alt="icon">
-    <span>{{ text }}</span>
-  </button>
+  <no-ssr>
+    <button
+      :class="{'outlined': outlined, 'snipcart-add-item': index, 'snipcart-checkout': checkout }"
+      :data-item-id="'product' + index"
+      :data-item-name="produit.name[0].text"
+      :data-item-description="produit.qty ? produit.qty + 'x' + produit.dosage + 'mg. Not for human consumption.' : ''"
+      :data-item-price="produit.price"
+      data-item-url="/"
+    >
+      <img v-if="icon" :src="getImgUrl(icon)" :alt="icon">
+      <span>{{ text }}</span>
+    </button>
+  </no-ssr>
 </template>
 <script>
 
