@@ -42,7 +42,7 @@ export default {
   },
   data(){
     return{
-      categories: ['ritalike', 'lysergic', 'modalike']
+      categories: ['ritalike', 'lysergic']
     }
   },
   head () {
