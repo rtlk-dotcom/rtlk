@@ -17,7 +17,7 @@
 
 export default {
   props: ['icon', 'text', 'outlined', 'pdt', 'index', 'checkout'],
-  name: 'btn',
+  name: 'BtnShop',
   data(){
     return{
       produit: ''
