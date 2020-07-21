@@ -1,5 +1,4 @@
 <template>
-  <no-ssr>
     <button
       :class="{'outlined': outlined, 'snipcart-add-item': index, 'snipcart-checkout': checkout }"
       :data-item-id="pdt.id"
@@ -11,7 +10,6 @@
       <!-- <img v-if="icon" :src="getImgUrl(icon)" :alt="icon"> -->
       <span>{{ text }}</span>
     </button>
-  </no-ssr>
 </template>
 <script>
 
