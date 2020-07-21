@@ -2,13 +2,13 @@
   <no-ssr>
     <button
       :class="{'outlined': outlined, 'snipcart-add-item': index, 'snipcart-checkout': checkout }"
-      :data-item-id="'product' + index"
-      :data-item-name="$prismic.asText(produit.name)"
-      :data-item-description="produit.qty ? produit.qty + 'x' + produit.dosage + 'mg. Not for human consumption.' : ''"
+      :data-item-id="pdt.id"
+      :data-item-name="pdt.name"
+      :data-item-description="pdt.qty ? pdt.qty + 'x' + pdt.dosage + 'mg. Not for human consumption.' : ''"
       :data-item-price="produit.price"
       data-item-url="/"
     >
-      <img v-if="icon" :src="getImgUrl(icon)" :alt="icon">
+      <!-- <img v-if="icon" :src="getImgUrl(icon)" :alt="icon"> -->
       <span>{{ text }}</span>
     </button>
   </no-ssr>

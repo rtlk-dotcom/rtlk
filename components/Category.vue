@@ -1,8 +1,8 @@
 <template>
   <div class="category">
-    <Single v-for="(slice, index) in produits"
-    :key="slice.id"
-    :slice="slice" :index="index" class="single"/>
+    <Single v-for="(product, index) in products"
+    :key="product.id"
+    :product="product" :index="index" class="single"/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 import Single from '~/components/Single.vue';
 
 export default {
-  props: ['slices', 'name'],
+  props: ['products'],
   name: 'category',
   components:{
     Single

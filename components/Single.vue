@@ -5,59 +5,59 @@
         <h1>***</h1>
         <h2>***</h2>
       </div>
-      <!-- {{ slice.link_wikipedia}}
-      {{ slice.link_thirdwave}} -->
-      <div class="links">
-        <prismic-link v-if="slice.link_wikipedia.url" :field="slice.link_wikipedia" class="link">
+      <!-- {{ product.link_wikipedia}}
+      {{ product.link_thirdwave}}-->
+      <!-- <div class="links">
+        <prismic-link v-if="product.link_wikipedia.url" :field="product.link_wikipedia" class="link">
           <Btn class="outlined circle" :icon="'wikipedia'" />
         </prismic-link>
-        <prismic-link v-if="slice.link_thirdwave.url" :field="slice.link_thirdwave" class="link">
+        <prismic-link v-if="product.link_thirdwave.url" :field="product.link_thirdwave" class="link">
           <Btn class="outlined circle" :icon="'wave'" />
         </prismic-link>
-      </div>
-      <span class="dosage">{{ slice.dosage}}**</span>
-      <span class="qty">x{{ slice.qty}}</span>
-      <span class="price">{{ slice.price}}€</span>
+      </div>-->
+      <span class="dosage">{{ product.dosage}}**</span>
+      <span class="qty">x{{ product.qty}}</span>
+      <span class="price">{{ product.price}}€</span>
       <div class="buttons">
         <!-- <Btn :text="'Subscribe'" :outlined="true" /> -->
-        <BtnShop :text="'Add to Cart'" :icon="'cart'" :pdt="slice.primary" :index="index" />
+        <BtnShop :text="'Add to Cart'" :icon="'cart'" :pdt="product" :index="index" />
       </div>
     </div>
     <div class="more-content" v-show="shown">
       <div class="desc">
-        {{ $prismic.asText(slice.desc) }}
-        <!-- <p><strong>{{ $prismic.asText(slice.name) }} is not for human consumption</strong></p> -->
+        {{ product.desc }}
+        <!-- <p><strong>{{ $prismic.asText(product.name) }} is not for human consumption</strong></p> -->
       </div>
-      <prismic-image :field="slice.molecule"/>
+      <!-- <prismic-image :field="product.molecule" /> -->
     </div>
   </article>
 </template>
 
 <script>
-import BtnShop from '@/components/BtnShop.vue'
+import BtnShop from "@/components/BtnShop.vue";
 
 export default {
-  props: ['slice', 'index'],
-  name: 'single',
-  components:{
+  props: ["product", "index"],
+  name: "single",
+  components: {
     BtnShop
   },
-  data(){
+  data() {
     return {
       shown: false
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>
-  article
-    display: flex
-    flex-direction: column
-    cursor: pointer
-    &:hover
-      transition: background .25s
-      background: rgba(#FFFFFF, .95)
+article
+  display: flex
+  flex-direction: column
+  cursor: pointer
+  &:hover
+    transition: background .25s
+    background: rgba(#FFFFFF, .95)
   .main-line
     display: flex
     align-items: center
@@ -109,6 +109,4 @@ export default {
       max-width: 66%
     img
       width: 150px
-
-
 </style>

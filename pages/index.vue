@@ -1,24 +1,38 @@
 <template>
   <section>
     <!-- Banner component -->
-    <homepage-banner :banner="banner" :categories="categories"/>
+    <homepage-banner :banner="banner" :categories="categories" />
     <!-- Slices block component -->
     <!-- <slices-block :slices="slices"/> -->
-    <section class="slice cards-category-slice slice-gradient">
-      <ProductsCategoryCards v-for="(cat, index) in categories" :key="cat" :card="slices[0].items[index]" :index="index" :slices="slices" :name="cat"/>
-    </section>
-    <section v-for="(cat, index) in categories" :key="cat" :id="cat" :card="slices[0].items[index]" class="slice categories">
+    <!-- <section class="slice cards-category-slice slice-gradient">
+      <ProductsCategoryCards
+        v-for="(cat, index) in categories"
+        :key="cat"
+        :card="slices[0].items[index]"
+        :index="index"
+        :slices="slices"
+        :name="cat"
+      />
+    </section>-->
+    <section
+      v-for="cat in categories"
+      :key="cat"
+      class="slice categories"
+    >
       <div class="intro">
         <div class="title">
           <!-- <h1>{{ cat }} ***{{ $prismic.asText(slices[0].items[index].suffix)}}</h1> -->
-          <h1>***</h1>
-          <h2>***</h2>
+          <h1>{{ cat.desc.name }}</h1>
+          <h2>{{ cat.desc.desc }}</h2>
         </div>
         <!-- <p v-if="slices[0].items[index].wiki_link.url"> Learn more about *** on <a :href="slices[0].items[index].wiki_link.url">the Third Wave</a></p> -->
-        <p v-if="slices[0].items[index].wiki_link.url"> Learn more about *** on <a href="#">the *** ***</a></p>
+        <!-- <p v-if="slices[0].items[index].wiki_link.url">
+          Learn more about *** on
+          <a href="#">the *** ***</a>
+        </p>-->
       </div>
       <section class="packs">
-        <Category :slices="slices" :name="cat"/>
+        <Category :products="cat.products" />
       </section>
     </section>
   </section>
@@ -26,51 +40,104 @@
 
 <script>
 // Imports for all components
-import HomepageBanner from '~/components/HomepageBanner.vue'
-import SlicesBlock from '~/components/SlicesBlock.vue'
-import Category from '~/components/Category.vue'
+import HomepageBanner from "~/components/HomepageBanner.vue";
+import SlicesBlock from "~/components/SlicesBlock.vue";
+import Category from "~/components/Category.vue";
 import ProductsCategoryCards from "~/components/ProductsCategoryCards.vue";
 
 export default {
-  name: 'Home',
-  layout: 'homepage',
+  name: "Home",
+  layout: "homepage",
   components: {
     HomepageBanner,
     SlicesBlock,
     Category,
     ProductsCategoryCards
   },
-  data(){
-    return{
-      categories: ['ritalike', 'lysergic']
-    }
-  },
-  head () {
+  data() {
     return {
-      title: 'Ritalike',
-    }
+      categories: {
+        ritalike: {
+          desc: {
+            name: "Ritalike",
+            desc: "Methylphenidate analogue"
+          },
+          products: {
+            fluoro: {
+              id: "101",
+              name: "4F-MPH",
+              full: "4Fluoro-Methylphenidate",
+              dosage: "15mg",
+              qty: "30",
+              price: "45",
+              desc: "Not for human consumption"
+            },
+            ippd: {
+              id: "002",
+              name: "IPPD",
+              full: "Isopropylphenidate",
+              dosage: "30mg",
+              qty: "30",
+              price: "45",
+              desc: "Not for human consumption"
+            }
+          }
+        },
+        lysergic: {
+          desc: {
+            name: "Lysergic",
+            desc: "LSD analogue"
+          },
+          products: {
+            plsd: {
+              id: "201",
+              name: "1P-LSD",
+              full: "1P-LSD",
+              dosage: "15µmg",
+              qty: "25",
+              price: "45",
+              desc: "Not for human consumption"
+            },
+            dplsd: {
+              id: "202",
+              name: "1dP-LSD",
+              full: "1dP-LSD",
+              dosage: "15µmg",
+              qty: "25",
+              price: "45",
+              desc: "Not for human consumption"
+            }
+          }
+        }
+      }
+    };
+  },
+  head() {
+    return {
+      title: "Ritalike"
+    };
   },
   async asyncData({ $prismic, error }) {
-    try{
+    try {
       // Query to get the home page content
-      const homepage = (await $prismic.api.getSingle('homepage')).data
+      const homepage = (await $prismic.api.getSingle("homepage")).data;
 
       return {
         // Page content
         banner: homepage.homepage_banner[0],
         // Set slices as variable
         slices: homepage.page_content
-      }
+      };
     } catch (e) {
-      error({ statusCode: 404, message: 'Page not found' })
+      error({ statusCode: 404, message: "Page not found" });
     }
-  },
-}
+  }
+};
 </script>
 <style lang="sass">
-  .site-header
-    z-index: 9999;
-    position: relative;
+.site-header
+  z-index: 9999
+  position: relative
   section
     h1
       text-transform: uppercase
@@ -106,14 +173,14 @@ export default {
     margin: auto
     padding: 2em 0
     &.slice-gradient
-      z-index: 1;
-      position: relative;
-      margin-top: -80px;
-      padding: 0 calc(50% - 520px) 50px;
+      z-index: 1
+      position: relative
+      margin-top: -80px
+      padding: 0 calc(50% - 520px) 50px
       &:before
         @include pseudo
         display: none
-        background: linear-gradient(183.92deg, rgba(255, 255, 255, 0) -21.08%, #FFFFFF 90.05%), linear-gradient(105.58deg, #80D8FF -28.42%, #EA80FC 178.03%), #C4C4C4;
+        background: linear-gradient(183.92deg, rgba(255, 255, 255, 0) -21.08%, #FFFFFF 90.05%), linear-gradient(105.58deg, #80D8FF -28.42%, #EA80FC 178.03%), #C4C4C4
         opacity: .2
         z-index: -3
     &.categories:hover
@@ -124,8 +191,8 @@ export default {
       *
         margin-bottom: 0
         line-height: 100%
-      display: flex
-      align-items: flex-end
+        display: flex
+        align-items: flex-end
     .intro
       justify-content: space-between
       margin-bottom: 2em
@@ -135,5 +202,4 @@ export default {
     button
       &:not(:last-child)
         margin-right: .5em
-
 </style>
