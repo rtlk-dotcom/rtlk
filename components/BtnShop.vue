@@ -4,7 +4,7 @@
       :data-item-id="pdt.id"
       :data-item-name="pdt.name"
       :data-item-description="pdt.qty ? pdt.qty + 'x' + pdt.dosage + 'mg. Not for human consumption.' : ''"
-      :data-item-price="produit.price"
+      :data-item-price="pdt.price"
       data-item-url="/"
     >
       <!-- <img v-if="icon" :src="getImgUrl(icon)" :alt="icon"> -->
