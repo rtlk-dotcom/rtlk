@@ -1,8 +1,7 @@
 <template>
   <div class="category">
-    <Single v-for="(slice, index) in slices"
+    <Single v-for="(slice, index) in produits"
     :key="slice.id"
-    v-if="slice.primary.category === name"
     :slice="slice" :index="index" class="single"/>
   </div>
 </template>
@@ -15,7 +14,27 @@ export default {
   name: 'category',
   components:{
     Single
+  },
+  data(){
+    return{
+      produits: []
+    }
+  },
+  methods:{
+    funcSlices(data){
+      this.slices.forEach((slice) => { 
+        // console.log(this.name)
+        if(slice.primary.category == this.name){
+          console.log("MJSDSD")
+          this.produits.push(slice.primary)
+        }
+      })  
+    }
+  },
+  beforeMount(){
+    this.funcSlices()
   }
+
 }
 </script>
 

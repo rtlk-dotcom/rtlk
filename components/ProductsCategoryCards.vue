@@ -25,7 +25,14 @@ export default {
   components:{
     Single,
     Btn
-  }
+  },
+  data(){
+    return{
+      produits:{
+        
+      }
+    }
+  },
 }
 </script>
 

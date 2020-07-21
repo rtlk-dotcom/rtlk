@@ -5,19 +5,19 @@
         <h1>***</h1>
         <h2>***</h2>
       </div>
-      <!-- {{ slice.primary.link_wikipedia}}
-      {{ slice.primary.link_thirdwave}} -->
+      <!-- {{ slice.link_wikipedia}}
+      {{ slice.link_thirdwave}} -->
       <div class="links">
-        <prismic-link v-if="slice.primary.link_wikipedia.url" :field="slice.primary.link_wikipedia" class="link">
+        <prismic-link v-if="slice.link_wikipedia.url" :field="slice.link_wikipedia" class="link">
           <Btn class="outlined circle" :icon="'wikipedia'" />
         </prismic-link>
-        <prismic-link v-if="slice.primary.link_thirdwave.url" :field="slice.primary.link_thirdwave" class="link">
+        <prismic-link v-if="slice.link_thirdwave.url" :field="slice.link_thirdwave" class="link">
           <Btn class="outlined circle" :icon="'wave'" />
         </prismic-link>
       </div>
-      <span class="dosage">{{ slice.primary.dosage}}**</span>
-      <span class="qty">x{{ slice.primary.qty}}</span>
-      <span class="price">{{ slice.primary.price}}€</span>
+      <span class="dosage">{{ slice.dosage}}**</span>
+      <span class="qty">x{{ slice.qty}}</span>
+      <span class="price">{{ slice.price}}€</span>
       <div class="buttons">
         <!-- <Btn :text="'Subscribe'" :outlined="true" /> -->
         <BtnShop :text="'Add to Cart'" :icon="'cart'" :pdt="slice.primary" :index="index" />
@@ -25,10 +25,10 @@
     </div>
     <div class="more-content" v-show="shown">
       <div class="desc">
-        {{ $prismic.asText(slice.primary.desc) }}
-        <!-- <p><strong>{{ $prismic.asText(slice.primary.name) }} is not for human consumption</strong></p> -->
+        {{ $prismic.asText(slice.desc) }}
+        <!-- <p><strong>{{ $prismic.asText(slice.name) }} is not for human consumption</strong></p> -->
       </div>
-      <prismic-image :field="slice.primary.molecule"/>
+      <prismic-image :field="slice.molecule"/>
     </div>
   </article>
 </template>
