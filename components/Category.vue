@@ -20,20 +20,20 @@ export default {
       produits: []
     }
   },
-  methods:{
-    funcSlices(data){
-      this.slices.forEach((slice) => { 
-        // console.log(this.name)
-        if(slice.primary.category == this.name){
-          console.log("MJSDSD")
-          this.produits.push(slice.primary)
-        }
-      })  
-    }
-  },
-  beforeMount(){
-    this.funcSlices()
-  }
+  // methods:{
+  //   funcSlices(data){
+  //     this.slices.forEach((slice) => { 
+  //       // console.log(this.name)
+  //       if(slice.primary.category == this.name){
+  //         console.log("MJSDSD")
+  //         this.produits.push(slice.primary)
+  //       }
+  //     })  
+  //   }
+  // },
+  // beforeMount(){
+  //   this.funcSlices()
+  // }
 
 }
 </script>

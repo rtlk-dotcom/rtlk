@@ -15,6 +15,11 @@ export default {
       { rel: 'preconnect', href: "https://app.snipcart.com" },
       { rel: 'preconnect', href: "https://cdn.snipcart.com" },
       { rel: 'stylesheet', href: 'https://cdn.snipcart.com/themes/v3.0.17/default/snipcart.css' },
+    ],
+    script: [
+      { rel: 'preconnect', href: "https://app.snipcart.com" },
+      { rel: 'preconnect', href: "https://cdn.snipcart.com" },
+      { src: 'https://cdn.snipcart.com/themes/v3.0.17/default/snipcart.js', defer: true}    
     ]
   },
 

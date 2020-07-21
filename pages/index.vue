@@ -16,7 +16,7 @@
     </section>-->
     <section
       v-for="cat in categories"
-      :key="cat"
+      :key="cat.id"
       class="slice categories"
     >
       <div class="intro">
@@ -168,38 +168,38 @@ export default {
       &:hover
         &:after
           width: 10%
-  section.slice
-    width: 1040px
-    margin: auto
-    padding: 2em 0
-    &.slice-gradient
-      z-index: 1
-      position: relative
-      margin-top: -80px
-      padding: 0 calc(50% - 520px) 50px
-      &:before
-        @include pseudo
-        display: none
-        background: linear-gradient(183.92deg, rgba(255, 255, 255, 0) -21.08%, #FFFFFF 90.05%), linear-gradient(105.58deg, #80D8FF -28.42%, #EA80FC 178.03%), #C4C4C4
-        opacity: .2
-        z-index: -3
-    &.categories:hover
-      .category
-        background: $bg
-        box-shadow: $shadow
-    .intro, .title
-      *
-        margin-bottom: 0
-        line-height: 100%
-        display: flex
-        align-items: flex-end
-    .intro
-      justify-content: space-between
-      margin-bottom: 2em
-  .buttons
-    display: flex
-    align-items: center
-    button
-      &:not(:last-child)
-        margin-right: .5em
+section.slice
+  width: 1040px
+  margin: auto
+  padding: 2em 0
+  &.slice-gradient
+    z-index: 1
+    position: relative
+    margin-top: -80px
+    padding: 0 calc(50% - 520px) 50px
+    &:before
+      @include pseudo
+      display: none
+      background: linear-gradient(183.92deg, rgba(255, 255, 255, 0) -21.08%, #FFFFFF 90.05%), linear-gradient(105.58deg, #80D8FF -28.42%, #EA80FC 178.03%), #C4C4C4
+      opacity: .2
+      z-index: -3
+  &.categories:hover
+    .category
+      background: $bg
+      box-shadow: $shadow
+  .intro, .title
+    *
+      margin-bottom: 0
+      line-height: 100%
+      display: flex
+      align-items: flex-end
+  .intro
+    justify-content: space-between
+    margin-bottom: 2em
+.buttons
+  display: flex
+  align-items: center
+  button
+    &:not(:last-child)
+      margin-right: .5em
 </style>
