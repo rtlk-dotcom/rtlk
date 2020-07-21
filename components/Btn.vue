@@ -1,5 +1,4 @@
 <template>
-<no-ssr>
   <button
     :class="{'outlined': outlined, 'snipcart-checkout': checkout }"
   >
@@ -7,7 +6,6 @@
     <span>{{ text }}</span>
     <span v-if="checkout"> (</span><span ref="count" v-if="checkout" class="snipcart-items-count"></span><span v-if="checkout" >)</span>
   </button>
-</no-ssr>
 </template>
 <script>
 
