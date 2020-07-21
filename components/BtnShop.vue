@@ -2,7 +2,7 @@
   <button
     :class="{'outlined': outlined, 'snipcart-add-item': index, 'snipcart-checkout': checkout }"
     :data-item-id="'product' + index"
-    :data-item-name="produit.name[0].text"
+    :data-item-name="$prismic.asText(produit.name)"
     :data-item-description="produit.qty ? produit.qty + 'x' + produit.dosage + 'mg. Not for human consumption.' : 'Not for human consumption.'"
     :data-item-price="produit.price"
     data-item-url="/"
@@ -22,7 +22,6 @@ export default {
     }
   },
   beforeMount() {
-    this.getPdt(this.pdt)
   },
   methods: {
     getImgUrl(icon) {
@@ -36,10 +35,8 @@ export default {
         this.produit =  []
       },
   },
-  monted(){
-    Snipcart.events.on('item.added', (cartItem) => {
-        console.log(Snipcart.cart);
-    });
+  mounted(){
+    this.getPdt(this.pdt)
   }
 }
 </script>
