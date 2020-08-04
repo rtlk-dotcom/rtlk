@@ -7,15 +7,15 @@
       </div>
       <!-- {{ product.link_wikipedia}}
       {{ product.link_thirdwave}}-->
-      <!-- <div class="links">
-        <prismic-link v-if="product.link_wikipedia.url" :field="product.link_wikipedia" class="link">
+      <div class="links">
+        <a v-if="product.wiki" :href="product.wiki" class="link" target="_blank">
           <Btn class="outlined circle" :icon="'wikipedia'" />
-        </prismic-link>
-        <prismic-link v-if="product.link_thirdwave.url" :field="product.link_thirdwave" class="link">
+        </a>
+        <a v-if="product.thirdwave" :href="product.thirdwave" class="link" target="_blank">
           <Btn class="outlined circle" :icon="'wave'" />
-        </prismic-link>
-      </div>-->
-      <span class="dosage">{{ product.dosage}}**</span>
+        </a>
+      </div>
+      <span class="dosage">{{ product.dosage}}</span>
       <span class="qty">x{{ product.qty}}</span>
       <span class="price">{{ product.price}}€</span>
       <div class="buttons">
@@ -35,12 +35,13 @@
 
 <script>
 import BtnShop from "@/components/BtnShop.vue";
+import Btn from "@/components/Btn.vue";
 
 export default {
   props: ["product", "index"],
   name: "single",
   components: {
-    BtnShop
+    BtnShop, Btn
   },
   data() {
     return {
@@ -62,9 +63,16 @@ article
     display: flex
     align-items: center
     justify-content: space-between
+    position: relative
+    @include media("<tablet")
+      flex-wrap: wrap  
     .product-title
       display: flex
       align-items: center
+      @include media("<tablet")
+        min-width: 100%
+        flex-direction: column
+        align-items: flex-start
     h1, h2
       font-family: inherit
       font-weight: 700
@@ -80,6 +88,14 @@ article
       display: flex
       width: 5.5em
       justify-content: center
+      @include media("<tablet")
+        min-width: 100%
+        flex: 1
+        margin: 1em 0
+        justify-content: flex-end
+        position: absolute
+        top: -1em
+        right: 0
       a.link
         border-radius: 50%
         height: 35px
@@ -98,6 +114,15 @@ article
       font-weight: 600
     .qty
       color: #3ECF8E
+  .buttons
+    @include media("<tablet")
+      flex: 1  
+      min-width: 100%
+      margin-top: 1em
+  button
+    @include media("<tablet")
+      min-width: 100%
+    
   .more-content
     border: 2px solid #F4F4FA
     border-radius: .5em

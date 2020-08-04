@@ -15,6 +15,7 @@
     "@nuxtjs/prismic": "^1.1.0",
     "babel-loader": "^8.1.0",
     "cookies": "^0.8.0",
+    "include-media": "^1.4.9",
     "nuxt": "^2.11.0",
     "nuxt-webfontloader": "^1.1.0",
     "prismic-javascript": "^2.1.5",

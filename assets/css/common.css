@@ -19,6 +19,8 @@ body {
   font-weight: 400;
   letter-spacing : 0.4px;
   line-height: 28px;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 a {
   color: #3C4993;

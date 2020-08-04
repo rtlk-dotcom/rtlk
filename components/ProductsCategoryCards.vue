@@ -1,45 +1,37 @@
 <template>
   <div class="category category-card">
-    <h1>***</h1>
-    <p>***</p>
+    <h1>{{ categorie.desc.name }}</h1>
+    <p>{{ categorie.desc.desc }}</p>
     <div class="products">
-      <span v-for="(slice, index) in slices"
-        :key="slice.id"
-        v-if="slice.primary.category === name"
-        :index="index">
-        <!-- <a href="#" v-scroll-to="'#' + name">{{ $prismic.asText(slice.primary.name) }}</a> -->
-        <a href="#" v-scroll-to="'#' + name">***</a>
+      <span v-for="(product, index) in categorie.products" :key="product.id" :index="index">
+        <a href="#" v-scroll-to="'#' + product.name">{{ product.name }}</a>
       </span>
     </div>
-    <Btn v-scroll-to="'#' + name" class="outlined" :text="'View selection'"/>
+    <Btn v-scroll-to="'#' + categorie.desc.name" class="outlined" :text="'View selection'" />
   </div>
 </template>
 
 <script>
-import Single from '~/components/Single.vue';
-import Btn from '~/components/Btn.vue';
+import Single from "~/components/Single.vue";
+import Btn from "~/components/Btn.vue";
 
 export default {
-  props: ['card', 'name', 'slices'],
-  name: 'category',
-  components:{
+  props: ["categorie"],
+  name: "category",
+  components: {
     Single,
     Btn
-  },
-  data(){
-    return{
-      produits:{
-        
-      }
-    }
-  },
-}
+  }
+};
 </script>
 
 <style lang="sass">
 .category.category-card
-  width: calc(33% - 1em)
+  width: calc(50% - 1em)
   padding: 5em 1.5em
+  @include media("<tablet")
+    padding: 1.5em 1.5em
+    width: 100%
   box-sizing: border-box
   background: transparent
   position: relative

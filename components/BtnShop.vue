@@ -3,11 +3,11 @@
       :class="{'outlined': outlined, 'snipcart-add-item': index, 'snipcart-checkout': checkout }"
       :data-item-id="pdt.id"
       :data-item-name="pdt.name"
-      :data-item-description="pdt.qty ? pdt.qty + 'x' + pdt.dosage + 'mg. Not for human consumption.' : ''"
+      :data-item-description="pdt.qty ? pdt.qty + 'x' + pdt.dosage + 'Not for human consumption.' : ''"
       :data-item-price="pdt.price"
       data-item-url="/"
     >
-      <!-- <img v-if="icon" :src="getImgUrl(icon)" :alt="icon"> -->
+      <img v-if="icon" :src="getImgUrl(icon)" :alt="icon">
       <span>{{ text }}</span>
     </button>
 </template>

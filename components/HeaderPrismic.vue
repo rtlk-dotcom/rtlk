@@ -9,7 +9,7 @@
       <prismic-image :field="$store.state.menu.logo" />
       {{ $prismic.asText($store.state.menu.title) }}
     </nuxt-link>
-    <nav>
+    <!-- <nav>
       <ul>
         <li v-for="menuLink in $store.state.menu.menu_links" :key="menuLink.id">
           <a
@@ -21,7 +21,7 @@
           </a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
     <Btn :text="'Checkout'" checkout="true" :outlined="true"/>
   </header>
 </template>

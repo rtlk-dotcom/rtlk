@@ -1,41 +1,24 @@
 <template>
   <div class="category">
-    <Single v-for="(product, index) in products"
-    :key="product.id"
-    :product="product" :index="index" class="single"/>
+    <Single
+      v-for="(product, index) in products"
+      :key="product.id"
+      :product="product"
+      :index="index"
+      class="single"
+    />
   </div>
 </template>
 
 <script>
-import Single from '~/components/Single.vue';
-
+import Single from "~/components/Single.vue";
 export default {
-  props: ['products'],
-  name: 'category',
-  components:{
+  props: ["products"],
+  name: "category",
+  components: {
     Single
-  },
-  data(){
-    return{
-      produits: []
-    }
-  },
-  // methods:{
-  //   funcSlices(data){
-  //     this.slices.forEach((slice) => { 
-  //       // console.log(this.name)
-  //       if(slice.primary.category == this.name){
-  //         console.log("MJSDSD")
-  //         this.produits.push(slice.primary)
-  //       }
-  //     })  
-  //   }
-  // },
-  // beforeMount(){
-  //   this.funcSlices()
-  // }
-
-}
+  }
+};
 </script>
 
 <style lang="sass">
@@ -49,6 +32,8 @@ export default {
   transition: all .35s
   position: relative
   z-index: 1
+  @include media("<tablet")
+    max-width: 100%
   &:before
     @include pseudo
     background: #F4F4FA

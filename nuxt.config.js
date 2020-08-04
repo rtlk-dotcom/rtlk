@@ -32,6 +32,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/css/_include-media.scss',
     '@/assets/css/vars.sass',
     '@/assets/css/resetr.css',
     '@/assets/css/common.css',

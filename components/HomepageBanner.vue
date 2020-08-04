@@ -69,9 +69,11 @@ export default {
   flex-direction: column
   justify-content: flex-start
   align-items: flex-start
+  @include media("<tablet")
+    padding: 0 .5em
   >p
     text-align: left
-    width: 720px
+    max-width: 720px
     font-weight: 500
     margin-top: 1em
   button
@@ -82,10 +84,12 @@ export default {
   line-height: 135%
   text-align: left
   width: 720px
+  max-width: 100%
   p
     margin-bottom: 0
-    // text-transform: uppercase
     font-size: 2.2em
+    @include media("<tablet")
+      font-size: 1.5em
     line-height: 100%
     font-family: 'Söhne Test', sans-serif
     font-weight: 600
