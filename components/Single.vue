@@ -1,6 +1,6 @@
 <template>
   <article>
-    <div class="main-line" @click="shown = !shown">
+    <div class="main-line">
       <div class="product-title">
         <h1>***</h1>
         <h2>***</h2>
@@ -18,6 +18,10 @@
       <span class="dosage">{{ product.dosage}}</span>
       <span class="qty">x{{ product.qty}}</span>
       <span class="price">{{ product.price}}€</span>
+      <div class="read-more" @click="shown = !shown">
+        <span class="link">About {{ product.name }}</span>
+        <span :class="[{'shown': shown}, 'arrow']">⌃</span>
+      </div>
       <div class="buttons">
         <!-- <Btn :text="'Subscribe'" :outlined="true" /> -->
         <BtnShop :text="'Add to Cart'" :icon="'cart'" :pdt="product" :index="index" />
@@ -41,13 +45,14 @@ export default {
   props: ["product", "index"],
   name: "single",
   components: {
-    BtnShop, Btn
+    BtnShop,
+    Btn,
   },
   data() {
     return {
-      shown: false
+      shown: false,
     };
-  }
+  },
 };
 </script>
 
@@ -55,7 +60,6 @@ export default {
 article
   display: flex
   flex-direction: column
-  cursor: pointer
   &:hover
     transition: background .25s
     background: rgba(#FFFFFF, .95)
@@ -65,7 +69,7 @@ article
     justify-content: space-between
     position: relative
     @include media("<tablet")
-      flex-wrap: wrap  
+      flex-wrap: wrap
     .product-title
       display: flex
       align-items: center
@@ -114,15 +118,29 @@ article
       font-weight: 600
     .qty
       color: #3ECF8E
+    .read-more
+      min-width: 9em
+      display: flex
+      justify-content: flex-end
+      align-items: center
+      cursor: pointer
+      .link
+        font-size: .785em
+      .arrow
+        transform: rotate(180deg)
+        transition: transform .2s
+        margin-left: .5em
+        &.shown
+          transform: rotate(270deg)
   .buttons
     @include media("<tablet")
-      flex: 1  
+      flex: 1
       min-width: 100%
       margin-top: 1em
   button
     @include media("<tablet")
       min-width: 100%
-    
+
   .more-content
     border: 2px solid #F4F4FA
     border-radius: .5em

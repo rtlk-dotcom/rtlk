@@ -149,7 +149,7 @@ section
     color: inherit
     font-size: 19px
     font-weight: 300
-  a
+  a, .link
     background: $bg
     -webkit-background-clip: text
     -webkit-text-fill-color: transparent
